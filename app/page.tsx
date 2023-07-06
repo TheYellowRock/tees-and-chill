@@ -1,9 +1,9 @@
-import Create from 'components/banner/create';
-import SaleBanner from 'components/banner/sale';
-import { ThreeItemGrid } from 'components/grid/three-items';
+import Categories from 'components/categories';
+import Hero, { HeroBusiness, HeroCustomTees } from 'components/hero';
 import Footer from 'components/layout/footer';
 import MenList from 'components/lists/men';
 import WomenList from 'components/lists/women';
+import CustomTeesSection from 'components/section';
 import { Suspense } from 'react';
 
 export const runtime = 'edge';
@@ -25,21 +25,20 @@ export const metadata = {
 export default async function HomePage() {
   return (
     <>
-      {/* @ts-expect-error Server Component */}
-      <ThreeItemGrid />
+      <Hero />
+      <Categories />
+
       <Suspense>
-        <SaleBanner />
+        {/* @ts-expect-error Server Component */}
+        <WomenList />
         <Suspense>
           {/* @ts-expect-error Server Component */}
-          <WomenList />
+          <MenList />
+          <HeroCustomTees />
+          <CustomTeesSection />
+          <HeroBusiness />
           <Suspense>
-            {/* @ts-expect-error Server Component */}
-            <MenList />
-            <Create />
-            <Suspense>
-              {/* @ts-expect-error Server Component */}
-              <Footer />
-            </Suspense>
+            <Footer />
           </Suspense>
         </Suspense>
       </Suspense>

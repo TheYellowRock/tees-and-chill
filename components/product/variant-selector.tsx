@@ -84,8 +84,8 @@ export function VariantSelector({
   }
 
   return options.map((option) => (
-    <dl className="mb-8" key={option.id}>
-      <dt className="mb-4 text-sm uppercase tracking-wide">{option.name}</dt>
+    <dl className="my-8" key={option.id}>
+      <dt className="mb-4 text-base font-medium uppercase tracking-wide">{option.name}</dt>
       <dd className="flex flex-wrap gap-3">
         {option.values.map((value) => {
           // Base option params on selected variant params.
@@ -108,6 +108,28 @@ export function VariantSelector({
 
           const DynamicTag = isAvailableForSale ? Link : 'p';
 
+          if (option.name === 'Color') {
+            console.log(value);
+            return (
+              <DynamicTag
+                key={value}
+                href={optionUrl}
+                title={`${option.name} ${value}${!isAvailableForSale ? ' (Out of Stock)' : ''}`}
+                className={clsx(
+                  'flex h-12 min-w-[48px] items-center justify-center rounded-full px-2 text-sm',
+                  {
+                    'cursor-default ring-2 ring-black': isActive,
+                    'ring-1 ring-gray-300 transition duration-300 ease-in-out hover:scale-110  hover:ring-black':
+                      !isActive && isAvailableForSale,
+                    'relative z-10 cursor-not-allowed overflow-hidden  ring-1 ring-gray-300 before:absolute before:inset-x-0 before:-z-10 before:h-px before:-rotate-45  before:transition-transform':
+                      !isAvailableForSale
+                  }
+                )}
+                style={{ backgroundColor: value }}
+                data-testid={isActive ? 'selected-variant' : 'variant'}
+              ></DynamicTag>
+            );
+          }
           return (
             <DynamicTag
               key={value}
@@ -116,10 +138,10 @@ export function VariantSelector({
               className={clsx(
                 'flex h-12 min-w-[48px] items-center justify-center rounded-full px-2 text-sm',
                 {
-                  'cursor-default ring-2 ring-black dark:ring-white': isActive,
-                  'ring-1 ring-gray-300 transition duration-300 ease-in-out hover:scale-110 hover:bg-gray-100 hover:ring-black dark:ring-gray-700 dark:hover:bg-transparent dark:hover:ring-white':
+                  'cursor-default ring-2 ring-black': isActive,
+                  'ring-1 ring-gray-300 transition duration-300 ease-in-out hover:scale-110 hover:bg-gray-100 hover:ring-black':
                     !isActive && isAvailableForSale,
-                  'relative z-10 cursor-not-allowed overflow-hidden bg-gray-100 ring-1 ring-gray-300 before:absolute before:inset-x-0 before:-z-10 before:h-px before:-rotate-45 before:bg-gray-300 before:transition-transform dark:bg-gray-900 dark:ring-gray-700 before:dark:bg-gray-700':
+                  'relative z-10 cursor-not-allowed overflow-hidden bg-gray-100 ring-1 ring-gray-300 before:absolute before:inset-x-0 before:-z-10 before:h-px before:-rotate-45 before:bg-gray-300 before:transition-transform':
                     !isAvailableForSale
                 }
               )}

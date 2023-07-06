@@ -1,48 +1,29 @@
+import Grid from 'components/grid';
+import ProductGridItems from 'components/layout/product-grid-items';
 import { getCollectionProducts } from 'lib/shopify';
 
 export default async function MenList() {
-  const products = (await getCollectionProducts('men')).slice(0, 3);
+  const products = await getCollectionProducts('hidden-top-pick-for-men');
   return (
-    <div className="bg-white">
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
-        <div className="sm:flex sm:items-baseline sm:justify-between">
-          <h2 className="text-2xl font-bold tracking-tight text-gray-900">Our Men Collection</h2>
+    <div className="bg-white my-10">
+      <div className="mx-auto max-w-2xl px-4 pt-10 sm:px-6 sm:py-14 lg:max-w-7xl lg:px-8">
+        <div className="md:flex md:items-center md:justify-between">
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900">Top Pick for men</h2>
           <a
-            href="/search/men"
-            className="hidden text-sm font-semibold text-indigo-600 hover:text-indigo-500 sm:block"
+            href="#"
+            className="hidden text-lg font-medium text-gray-500 hover:text-gray-700 md:block"
           >
-            Browse The Men Collection
+            Discover More
             <span aria-hidden="true"> &rarr;</span>
           </a>
         </div>
+        <Grid className="grid-cols-2 lg:grid-cols-4">
+          <ProductGridItems products={products} />
+        </Grid>
 
-        <div className="mt-6 grid grid-cols-1 gap-y-10 sm:grid-cols-3 sm:gap-x-6 sm:gap-y-0 lg:gap-x-8">
-          {products.map((product) => (
-            <div key={product.id} className="group relative">
-              <div className="h-96 w-full overflow-hidden rounded-lg sm:aspect-h-3 sm:aspect-w-2 group-hover:opacity-75 sm:h-auto">
-                <img
-                  src={product.featuredImage.url}
-                  alt={product.featuredImage.altText}
-                  className="h-full w-full object-cover object-center"
-                />
-              </div>
-              <h3 className="mt-4 text-base font-semibold text-gray-900">
-                <a href={`/product/${product.handle}`}>
-                  <span className="absolute inset-0" />
-                  {product.title}
-                </a>
-              </h3>
-              <p className="mt-1 text-sm text-gray-500">
-                {product.priceRange.minVariantPrice.amount}{' '}
-                {product.priceRange.minVariantPrice.currencyCode}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-6 sm:hidden">
-          <a href="#" className="block text-sm font-semibold text-indigo-600 hover:text-indigo-500">
-            Browse The Men Collection
+        <div className="mt-8 text-sm md:hidden">
+          <a href="#" className="font-medium text-gray-500 hover:text-gray-700">
+            Discover More
             <span aria-hidden="true"> &rarr;</span>
           </a>
         </div>

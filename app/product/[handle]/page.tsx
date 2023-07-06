@@ -1,3 +1,4 @@
+import Price from 'components/price';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
@@ -8,7 +9,7 @@ import ProductGridItems from 'components/layout/product-grid-items';
 import { AddToCart } from 'components/product/add-to-cart';
 import { Gallery } from 'components/product/gallery';
 import { VariantSelector } from 'components/product/variant-selector';
-import Prose from 'components/prose';
+import SizeGuideModal from 'components/size/size-modal';
 import { HIDDEN_PRODUCT_TAG } from 'lib/constants';
 import { getProduct, getProductRecommendations } from 'lib/shopify';
 import { Image } from 'lib/shopify/types';
@@ -60,8 +61,8 @@ export default async function ProductPage({ params }: { params: { handle: string
 
   return (
     <div>
-      <div className="lg:grid lg:grid-cols-6">
-        <div className="lg:col-span-4">
+      <div className="mx-auto max-w-7xl mt-20 lg:grid lg:grid-cols-6">
+        <div className="lg:col-span-3">
           <Gallery
             title={product.title}
             amount={product.priceRange.maxVariantPrice.amount}
@@ -73,22 +74,33 @@ export default async function ProductPage({ params }: { params: { handle: string
           />
         </div>
 
-        <div className="p-6 lg:col-span-2">
+        <div className="px-28 lg:col-span-3">
+          <div className="mb-4 text-5xl font-bold">{product.title}</div>
+
+          <Price
+            className="mb-4 text-xl font-medium"
+            amount={product.priceRange.maxVariantPrice.amount}
+            currencyCode={product.priceRange.minVariantPrice.currencyCode}
+          />
+          <div className="mb-4 text-base font-light">{product.description}</div>
           {/* @ts-expect-error Server Component */}
           <VariantSelector options={product.options} variants={product.variants} />
 
-          {product.descriptionHtml ? (
-            <Prose className="mb-6 text-sm leading-tight" html={product.descriptionHtml} />
-          ) : null}
+          <div className="w-full pt-12">
+            <div className="mt-8">
+              <SizeGuideModal />
+            </div>
 
-          <AddToCart variants={product.variants} availableForSale={product.availableForSale} />
+            <div className="mt-4">
+              <AddToCart variants={product.variants} availableForSale={product.availableForSale} />
+            </div>
+          </div>
         </div>
       </div>
       <Suspense>
         {/* @ts-expect-error Server Component */}
         <RelatedProducts id={product.id} />
         <Suspense>
-          {/* @ts-expect-error Server Component */}
           <Footer />
         </Suspense>
       </Suspense>
@@ -102,7 +114,7 @@ async function RelatedProducts({ id }: { id: string }) {
   if (!relatedProducts.length) return null;
 
   return (
-    <div className="px-4 py-8">
+    <div className="mx-auto max-w-7xl  mt-20 px-4 py-8 border-t-2 border-gray-500">
       <div className="mb-4 text-3xl font-bold">Related Products</div>
       <Grid className="grid-cols-2 lg:grid-cols-5">
         <ProductGridItems products={relatedProducts} />

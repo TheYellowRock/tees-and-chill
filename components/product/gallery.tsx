@@ -28,7 +28,7 @@ export function Gallery({
   }
 
   const buttonClassName =
-    'px-9 cursor-pointer ease-in-and-out duration-200 transition-bg bg-[#7928ca] hover:bg-violetDark';
+    'px-9 cursor-pointer ease-in-and-out duration-200 border border-white shadow-xl transition-bg bg-gray-500 hover:bg-gray-700';
 
   return (
     <div className="h-full">
@@ -41,20 +41,15 @@ export function Gallery({
             height={600}
             isInteractive={false}
             priority={true}
-            background="purple"
-            labels={{
-              title,
-              amount,
-              currencyCode
-            }}
+            background="white"
           />
         )}
 
         {images.length > 1 ? (
-          <div className="absolute bottom-10 right-10 flex h-12 flex-row border border-white text-white shadow-xl dark:border-black dark:text-black">
+          <div className="absolute bottom-10 flex h-12 w-full flex-row justify-between  text-white ">
             <button
               aria-label="Previous product image"
-              className={clsx(buttonClassName, 'border-r border-white dark:border-black')}
+              className={clsx(buttonClassName)}
               onClick={() => handleNavigate('previous')}
             >
               <ArrowLeftIcon className="h-6" />
@@ -78,7 +73,7 @@ export function Gallery({
               <button
                 aria-label="Enlarge product image"
                 key={image.src}
-                className="h-full w-1/4"
+                className="w-1/4 overflow-hidden"
                 onClick={() => setCurrentImage(index)}
               >
                 <GridTileImage
@@ -86,7 +81,7 @@ export function Gallery({
                   src={image.src}
                   width={600}
                   height={600}
-                  background="purple-dark"
+                  background="white"
                   active={isActive}
                 />
               </button>
