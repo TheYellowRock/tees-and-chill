@@ -10,8 +10,8 @@ async function CollectionList() {
 }
 
 const skeleton = 'mb-3 h-4 w-5/6 animate-pulse rounded';
-const activeAndTitles = 'bg-gray-800 dark:bg-gray-300';
-const items = 'bg-gray-400 dark:bg-gray-700';
+const activeAndTitles = 'bg-gray-800';
+const items = 'bg-gray-400';
 
 export default function Collections() {
   return (

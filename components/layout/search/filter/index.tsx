@@ -20,7 +20,7 @@ export default function FilterList({ list, title }: { list: ListItem[]; title?: 
     <>
       <nav className="col-span-2 w-full flex-none px-6 py-2 md:py-4 md:pl-10">
         {title ? (
-          <h3 className="hidden font-semibold text-black dark:text-white md:block">{title}</h3>
+          <h3 className="hidden font-semibold text-black md:block">{title}</h3>
         ) : null}
         <ul className="hidden md:block">
           <FilterItemList list={list} />

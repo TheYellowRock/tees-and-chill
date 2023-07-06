@@ -61,7 +61,7 @@ export default async function ProductPage({ params }: { params: { handle: string
 
   return (
     <div>
-      <div className="mx-auto max-w-7xl mt-20 lg:grid lg:grid-cols-6">
+      <div className="mx-auto mt-20 max-w-7xl lg:grid lg:grid-cols-6">
         <div className="lg:col-span-3">
           <Gallery
             title={product.title}
@@ -74,7 +74,7 @@ export default async function ProductPage({ params }: { params: { handle: string
           />
         </div>
 
-        <div className="px-28 lg:col-span-3">
+        <div className="px-6 lg:col-span-3 lg:px-16 xl:px-28">
           <div className="mb-4 text-5xl font-bold">{product.title}</div>
 
           <Price
@@ -114,7 +114,7 @@ async function RelatedProducts({ id }: { id: string }) {
   if (!relatedProducts.length) return null;
 
   return (
-    <div className="mx-auto max-w-7xl  mt-20 px-4 py-8 border-t-2 border-gray-500">
+    <div className="mx-auto mt-20  max-w-7xl border-t-2 border-gray-500 px-4 py-8">
       <div className="mb-4 text-3xl font-bold">Related Products</div>
       <Grid className="grid-cols-2 lg:grid-cols-5">
         <ProductGridItems products={relatedProducts} />

@@ -13,7 +13,7 @@ export default async function Navbar() {
   const menu = await getMenu('next-js-frontend-header-menu');
 
   return (
-    <nav className="relative flex items-center justify-between bg-white p-4 dark:bg-black lg:px-6">
+    <nav className="relative flex items-center justify-between bg-white p-4 lg:px-6">
       <div className="block w-1/3 md:hidden">
         <MobileMenu menu={menu} />
       </div>
@@ -29,7 +29,7 @@ export default async function Navbar() {
               <li key={item.title}>
                 <Link
                   href={item.path}
-                  className="rounded-lg px-2 py-1 text-gray-800 hover:text-gray-500 dark:text-gray-200 dark:hover:text-gray-400"
+                  className="rounded-lg px-2 py-1 text-gray-800 hover:text-gray-500"
                 >
                   {item.title}
                 </Link>

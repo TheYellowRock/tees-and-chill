@@ -7,13 +7,13 @@ export default function Hero() {
       />
       <div className="relative flex h-full w-full items-center p-10 lg:p-40 ">
         <div className="w-1/2"></div>
-        <div className=" w-1/2 justify-end text-3xl font-bold lg:text-7xl lg:font-extrabold ">
+        <div className=" text-2xlxl w-1/2 justify-end font-bold lg:text-7xl lg:font-extrabold ">
           <div className="lg:p-2">Soft.</div>
           <div className="lg:p-2">Compfy.</div>
           <div className="lg:p-2">Trendy.</div>
           <div className="lg:p-2">&</div>
           <div className="lg:p-2">Customizable!</div>
-          <button className=" mt-5 border-2 border-gray-900 p-2 text-sm font-light uppercase text-gray-900 hover:bg-gray-900 hover:text-white lg:mt-10 lg:p-5 lg:text-3xl">
+          <button className=" mt-5 border border-gray-900 p-2 text-sm font-light uppercase text-gray-900 hover:bg-gray-900 hover:text-white lg:mt-10 lg:border-2 lg:p-5 lg:text-3xl">
             Discover The Collection
             <span aria-hidden="true"> &rarr;</span>
           </button>
@@ -39,7 +39,7 @@ export function HeroCustomTees() {
             Create branded T-shirts that feel good and look great – available in a range of designs,
             colors and styles.
           </div>
-          <button className="mt-5 border-2 border-white p-2 text-sm font-extralight uppercase text-white hover:bg-white hover:text-gray-900 lg:mt-10 lg:p-5 lg:text-3xl">
+          <button className="mt-5 border border-white p-2 text-sm font-extralight uppercase text-white hover:bg-white hover:text-gray-900 lg:mt-10 lg:border-2 lg:p-5 lg:text-3xl">
             Create It
             <span aria-hidden="true"> &rarr;</span>
           </button>
@@ -66,7 +66,7 @@ export function HeroBusiness() {
             Create a look for the entire team without the need to start your design from scratch.
             Easy, simple, fast.
           </div>
-          <button className=" mt-5 border-2 border-gray-900 p-2 text-sm font-extralight uppercase text-gray-900 hover:bg-gray-900 hover:text-white lg:mt-10 lg:p-5 lg:text-3xl">
+          <button className=" mt-5 border border-gray-900 p-2 text-sm font-extralight uppercase text-gray-900 hover:bg-gray-900 hover:text-white lg:mt-10 lg:border-2 lg:p-5 lg:text-3xl">
             Inquire Now
             <span aria-hidden="true"> &rarr;</span>
           </button>

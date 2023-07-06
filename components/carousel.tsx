@@ -9,7 +9,7 @@ export async function Carousel() {
   if (!products?.length) return null;
 
   return (
-    <div className="relative w-full overflow-hidden bg-black dark:bg-white">
+    <div className="relative w-full overflow-hidden bg-black">
       <div className="flex animate-carousel">
         {[...products, ...products].map((product, i) => (
           <Link
@@ -27,7 +27,7 @@ export async function Carousel() {
               />
             ) : null}
             <div className="absolute inset-y-0 right-0 flex items-center justify-center">
-              <div className="inline-flex bg-white p-4 text-xl font-semibold text-black dark:bg-black dark:text-white">
+              <div className="inline-flex bg-white p-4 text-xl font-semibold text-black">
                 {product.title}
               </div>
             </div>

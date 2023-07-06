@@ -48,7 +48,7 @@ export default function EditItemQuantityButton({
       onClick={handleEdit}
       disabled={editing}
       className={clsx(
-        'ease flex min-w-[36px] max-w-[36px] items-center justify-center border px-2 transition-all duration-200 hover:border-gray-800 hover:bg-gray-100 dark:border-gray-700 dark:hover:border-gray-600 dark:hover:bg-gray-900',
+        'ease flex min-w-[36px] max-w-[36px] items-center justify-center border px-2 transition-all duration-200 hover:border-gray-800 hover:bg-gray-100',
         {
           'cursor-not-allowed': editing,
           'ml-auto': type === 'minus'
@@ -56,7 +56,7 @@ export default function EditItemQuantityButton({
       )}
     >
       {editing ? (
-        <LoadingDots className="bg-black dark:bg-white" />
+        <LoadingDots className="bg-black" />
       ) : type === 'plus' ? (
         <PlusIcon className="h-4 w-4" />
       ) : (

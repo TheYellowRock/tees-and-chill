@@ -55,7 +55,7 @@ export default function MobileMenu({ menu }: { menu: Menu[] }) {
             variants={{
               open: { opacity: 1 }
             }}
-            className="flex w-full flex-col bg-white pb-6 dark:bg-black"
+            className="flex w-full flex-col bg-white pb-6"
           >
             <div className="p-4">
               <button
@@ -78,7 +78,7 @@ export default function MobileMenu({ menu }: { menu: Menu[] }) {
                     <li key={item.title}>
                       <Link
                         href={item.path}
-                        className="rounded-lg py-1 text-xl text-black transition-colors hover:text-gray-500 dark:text-white"
+                        className="rounded-lg py-1 text-xl text-black transition-colors hover:text-gray-500"
                         onClick={() => {
                           setMobileMenuIsOpen(false);
                         }}

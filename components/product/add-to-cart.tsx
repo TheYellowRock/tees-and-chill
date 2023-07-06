@@ -66,7 +66,7 @@ export function AddToCart({
       disabled={isMutating}
       onClick={handleAdd}
       className={clsx(
-        'flex w-full items-center justify-center bg-black p-4 text-sm uppercase tracking-wide text-white opacity-90 hover:opacity-100 dark:bg-white dark:text-black',
+        'flex w-full items-center justify-center bg-black p-4 text-sm uppercase tracking-wide text-white opacity-90 hover:opacity-100',
         {
           'cursor-not-allowed opacity-60': !availableForSale,
           'cursor-not-allowed': isMutating
@@ -74,7 +74,7 @@ export function AddToCart({
       )}
     >
       <span>{availableForSale ? 'Add To Cart' : 'Out Of Stock'}</span>
-      {isMutating ? <LoadingDots className="bg-white dark:bg-black" /> : null}
+      {isMutating ? <LoadingDots className="bg-white" /> : null}
     </button>
   );
 }
